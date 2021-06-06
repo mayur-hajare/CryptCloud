@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.EncryptionFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lock_animation_view"
+            android:layout_width="370dp"
+            android:layout_height="60dp"
+            android:layout_alignTop="@id/animation_view"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/lock" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="370dp"
+            android:layout_height="200dp"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/offline_sharing_animation" />
+
+
+        <TextView
+            android:id="@+id/des_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/animation_view"
+            android:layout_centerHorizontal="true"
+            android:text="@string/fast_and_easy_file_nencryption_amp_decryption"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/des_text"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_encrypt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@string/encrypt_text"
+                android:textAllCaps="false"
+                android:textColor="@color/blue_btn_text_color"
+                app:backgroundTint="@color/quantum_googblue600"
+                app:icon="@drawable/ic_lock"
+                app:iconSize="20dp"
+                app:iconTint="@color/colorPrimary"
+                app:rippleColor="@color/quantum_googblue700" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_decrypt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@string/decrypt_text"
+                android:textAllCaps="false"
+                android:textColor="@color/blue_btn_text_color"
+                app:backgroundTint="@color/quantum_googblue600"
+                app:icon="@drawable/ic_unlock"
+                app:iconSize="20dp"
+                app:iconTint="@color/colorPrimary"
+                app:rippleColor="@color/quantum_googblue700" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
