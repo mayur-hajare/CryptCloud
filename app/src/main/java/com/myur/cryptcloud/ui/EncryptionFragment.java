@@ -31,8 +31,6 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.myur.cryptcloud.R;
-import com.myur.cryptcloud.model.UploadModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
@@ -43,6 +41,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.myur.cryptcloud.R;
+import com.myur.cryptcloud.model.UploadModel;
 import com.obsez.android.lib.filechooser.ChooserDialog;
 import com.obsez.android.lib.filechooser.internals.FileUtil;
 
@@ -66,6 +66,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 public class EncryptionFragment extends Fragment {
+
 
     private static final int REQUEST_RUNTIME_PERMISSION = 123;
     public static String encryptFolder = "CryptCloud/Encrypted Files";
@@ -91,7 +92,7 @@ public class EncryptionFragment extends Fragment {
         FileInputStream fis = new FileInputStream(path);
         // This stream write the encrypted text. This stream will be wrapped by
         // another stream.
-        String pass = encrypt(password.getText().toString(), "CryptDuolc");
+        String pass = encrypt(password.getText().toString(), "TraceecarT");
         File newFile = new File(extStore + "/" + encryptFolder + "/" + fileName + "." + pass);
         FileOutputStream fos = new FileOutputStream(newFile);
         Log.e("URI ", "encrypt: " + Uri.fromFile(newFile).toString());
@@ -122,6 +123,7 @@ public class EncryptionFragment extends Fragment {
 
         File extStore = Environment.getExternalStorageDirectory();
         FileInputStream fis = new FileInputStream(path);
+
 
         FileOutputStream fos = new FileOutputStream(extStore + "/" + decryptFolder + "/" + fileName);
         SecretKeySpec sks = new SecretKeySpec(password.getText().toString().getBytes(),
@@ -276,7 +278,7 @@ public class EncryptionFragment extends Fragment {
                         Log.e("Part 1: ", parts[parts.length - 1]);
                         String dec = null;
                         try {
-                            dec = decrypt(parts[parts.length - 1], "CryptDuolc");
+                            dec = decrypt(parts[parts.length - 1], "TraceecarT");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
