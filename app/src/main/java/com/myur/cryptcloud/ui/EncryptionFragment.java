@@ -75,8 +75,10 @@ public class EncryptionFragment extends Fragment {
     public static File fileFilePath;
     public static String AES = "AES";
     private static Uri fileURI;
+    public String pass;
     String encrypt = "Encrypt";
     String decrypt = "Decrypt";
+    public static File newFile;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private LottieAnimationView animationView, lockAnimation;
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(mAuth.getUid());
@@ -93,7 +95,7 @@ public class EncryptionFragment extends Fragment {
         // This stream write the encrypted text. This stream will be wrapped by
         // another stream.
         String pass = encrypt(password.getText().toString(), "TraceecarT");
-        File newFile = new File(extStore + "/" + encryptFolder + "/" + fileName + "." + pass);
+        newFile = new File(extStore + "/" + encryptFolder + "/" + fileName+"."+pass);
         FileOutputStream fos = new FileOutputStream(newFile);
         Log.e("URI ", "encrypt: " + Uri.fromFile(newFile).toString());
         // Length is 16 byte
@@ -118,13 +120,15 @@ public class EncryptionFragment extends Fragment {
         return Uri.fromFile(newFile);
     }
 
-    static void decrypt(String path, String fileName, Dialog dialog, EditText password) throws IOException, NoSuchAlgorithmException,
-            NoSuchPaddingException, InvalidKeyException {
+    static void decrypt(String path, String fileName, Dialog dialog, EditText password) throws Exception {
 
         File extStore = Environment.getExternalStorageDirectory();
         FileInputStream fis = new FileInputStream(path);
 
-
+        /*String string = path;
+        String[] parts = string.split("/");
+        String file= parts[parts.length-1];
+        */
         FileOutputStream fos = new FileOutputStream(extStore + "/" + decryptFolder + "/" + fileName);
         SecretKeySpec sks = new SecretKeySpec(password.getText().toString().getBytes(),
                 "AES");
@@ -142,6 +146,15 @@ public class EncryptionFragment extends Fragment {
         dialog.dismiss();
     }
 
+    public static String decrypt(String outputString, String password) throws Exception {
+        SecretKeySpec key = generateKey(password);
+        Cipher c = Cipher.getInstance(AES);
+        c.init(Cipher.DECRYPT_MODE, key);
+        byte[] decodedValue = Base64.decode(outputString, Base64.DEFAULT);
+        byte[] decValue = c.doFinal(decodedValue);
+        return new String(decValue);
+    }
+
     public static String encrypt(String Data, String password) throws Exception {
         SecretKeySpec key = generateKey(password);
         Cipher c = Cipher.getInstance(AES);
@@ -151,14 +164,6 @@ public class EncryptionFragment extends Fragment {
 
     }
 
-    public static String decrypt(String outputString, String password) throws Exception {
-        SecretKeySpec key = generateKey(password);
-        Cipher c = Cipher.getInstance(AES);
-        c.init(Cipher.DECRYPT_MODE, key);
-        byte[] decodedValue = Base64.decode(outputString, Base64.DEFAULT);
-        byte[] decValue = c.doFinal(decodedValue);
-        return new String(decValue);
-    }
 
     public static SecretKeySpec generateKey(String password) throws Exception {
         final MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -169,12 +174,12 @@ public class EncryptionFragment extends Fragment {
 
     }
 
-    public void uploadFIle(Uri file) {
-        if (file != null) {
-            String[] parts = file.toString().split("\\/");
+    public void uploadFIle(Uri newFile) {
+        if (newFile != null) {
+            String[] parts = newFile.toString().split("\\/");
             String name = parts[parts.length - 1];
             StorageReference fileReference = reference.child(name);
-            fileReference.putFile(file).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            fileReference.putFile(newFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -337,7 +342,7 @@ public class EncryptionFragment extends Fragment {
     }
 
     private void createApplicationFolder(String path, File dir) {
-        File media = new File(path, "Trace");
+        File media = new File(path, "Crypt Cloud");
         File mediaStorageDir = new File(dir, encryptFolder);
         File mediaStorageDirs = new File(dir, decryptFolder);
 
@@ -450,7 +455,7 @@ public class EncryptionFragment extends Fragment {
             String[] parts = strFileName.split("\\.");
             String fileName = parts[0];
             try {
-                Uri file = encrypt(stringFilePath, strFileName, dialog, password);
+                Uri file =fileURI;
                 if (file == null) {
                     isNull = true;
                 } else {
@@ -521,6 +526,8 @@ public class EncryptionFragment extends Fragment {
                 decrypt(stringFilePath, wholeFileName, dialog, password);
             } catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IOException e) {
                 // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return "Executed";
