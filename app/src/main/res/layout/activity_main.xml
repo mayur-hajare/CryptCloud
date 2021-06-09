@@ -36,12 +36,11 @@
             android:textColor="@color/text_color"
             android:textSize="22sp"
             android:textStyle="bold" />
-        <ImageButton
+        <ImageView
             android:id="@+id/fileView"
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_encryption"
-            android:background="@color/colorWhite"
             android:layout_marginStart="150dp"
             android:textColor="@color/blue_btn_text_color"
             android:textSize="18sp"

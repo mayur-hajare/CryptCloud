@@ -8,7 +8,7 @@
     android:background="#00000000"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:padding="5dp"
             android:scrollHorizontally="true"
             android:singleLine="true"
-            android:text="Information"
+            android:text="Details"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/text_color"

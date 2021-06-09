@@ -39,7 +39,7 @@ import static com.myur.cryptcloud.util.Constants.restoreUserData;
 public class MainActivity extends AppCompatActivity {
     TextView uName, uEmail;
     ImageView uImage;
-    ImageButton file;
+    ImageView file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

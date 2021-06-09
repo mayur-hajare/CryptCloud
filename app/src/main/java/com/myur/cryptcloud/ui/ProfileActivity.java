@@ -97,7 +97,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectedProfile.setImageResource(R.drawable.img8);
-                selectedProfile.setTag(R.drawable.img10);
+                selectedProfile.setTag(R.drawable.img8);
             }
         });
 
