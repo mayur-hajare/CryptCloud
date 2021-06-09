@@ -27,7 +27,7 @@
             android:layout_width="370dp"
             android:layout_height="200dp"
             app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/offline_sharing_animation" />
+            app:lottie_rawRes="@raw/filechange" />
 
 
         <TextView
@@ -36,7 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/animation_view"
             android:layout_centerHorizontal="true"
-            android:text="@string/fast_and_easy_file_nencryption_amp_decryption"
+            android:text="Secure your file\n with us"
+
             android:textAlignment="center"
             android:textColor="@color/text_color"
             android:textSize="22sp" />

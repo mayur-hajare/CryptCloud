@@ -47,7 +47,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         getEmail = findViewById(R.id.get_email);
         btnForgetPassword = findViewById(R.id.btn_forget_password);
         img = findViewById(R.id.img_forget_password);
-        btnBack = findViewById(R.id.btn_back);
+        //btnBack = findViewById(R.id.btn_back);
         otpSentSuccessfully = findViewById(R.id.txt_otp_sent_msg);
         otpProgress = findViewById(R.id.otp_sent_progressbar);
 

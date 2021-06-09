@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">@color/quantum_googblue700</color>
-    <color name="colorAccent">@color/quantum_googblue600</color>
+    <color name="colorPrimaryDark">#F99D31</color>
+    <color name="colorAccent">#FFAA4D</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGreen">#32CD32</color>
     <color name="red">#ffff0000</color>
 
-    <color name="quantum_googblue400">#FF498EFF</color>
-    <color name="quantum_googblue500">#ff4285f4</color>
-    <color name="quantum_googblue600">#ff3b78e7</color>
-    <color name="quantum_googblue700">#ff3367d6</color>
+    <color name="quantum_googblue400">#FFAA4D</color>
+    <color name="quantum_googblue500">#FFAA4D</color>
+    <color name="quantum_googblue600">#FFAA4D</color>
+    <color name="quantum_googblue700">#F99D31</color>
 
     <color name="action_bar_background">#ffffff</color>
     <color name="text_color">#212121</color>
@@ -30,9 +30,9 @@
 
     <color name="li_row_background_dark">#ffffff</color>
     <color name="li_row_background_tint_dark">@color/quantum_googblue500</color>
-    <color name="li_row_selector_dark">#4D498EFF</color>
+    <color name="li_row_selector_dark">#FF8600</color>
     <color name="text_light">@color/quantum_googblue500</color>
     <color name="background_dark">#ffffff</color>
-    <color name="text_light_opaque">#903B78E6</color>
+    <color name="text_light_opaque">#FF8600</color>
     <color name="overlay_dark">#ffffff</color>
 </resources>

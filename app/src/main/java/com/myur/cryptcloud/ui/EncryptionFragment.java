@@ -239,9 +239,10 @@ public class EncryptionFragment extends Fragment {
         animationView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                animationView.setSpeed(2);
+                animationView.setSpeed(10);
                 animationView.playAnimation();
                 lockAnimation.playAnimation();
+                lockAnimation.isAnimating();
             }
         });
         // Lottie Animation Setup

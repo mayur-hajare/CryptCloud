@@ -22,7 +22,7 @@
         android:textColor="@color/text_color"
         android:textCursorDrawable="@null"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_admin"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Welcome\nBack!"
+        android:fontFamily="@font/aclonica"
+        android:text="Welcome\nBack ! "
         android:textColor="@color/text_color"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -108,25 +109,23 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/image_login"
-        android:layout_width="170dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:contentDescription="Login Image"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/login"
         app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_password"
-        app:srcCompat="@drawable/img_sign_in" />
+       />
 
     <TextView
         android:id="@+id/label_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="43dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/btn_blue_corner"
         android:elevation="10dp"
         android:paddingLeft="6dp"
@@ -136,16 +135,15 @@
         android:text="Email"
         android:textColor="#fff"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/login_username"
-        app:layout_constraintStart_toStartOf="@+id/login_username" />
+        app:layout_constraintStart_toStartOf="@+id/login_username"
+        app:layout_constraintTop_toBottomOf="@+id/login_username" />
 
     <TextView
         android:id="@+id/label_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/btn_blue_corner"
         android:elevation="10dp"
         android:paddingLeft="6dp"
@@ -155,7 +153,6 @@
         android:text="Password"
         android:textColor="#fff"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/login_password"
         app:layout_constraintStart_toStartOf="@+id/login_password"
         app:layout_constraintTop_toBottomOf="@+id/label_username" />
 

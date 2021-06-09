@@ -27,24 +27,27 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_menu"
             app:tint="@color/image_tint" />
-        <ImageButton
-            android:id="@+id/fileView"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_1"
-            android:textColor="@color/blue_btn_text_color"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            />
-        <TextView
+               <TextView
             android:id="@+id/textTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:text="@string/app_name"
             android:textColor="@color/text_color"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
+        <ImageButton
+            android:id="@+id/fileView"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_encryption"
+            android:background="@color/colorWhite"
+            android:layout_marginStart="150dp"
+            android:textColor="@color/blue_btn_text_color"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
 
 
     </LinearLayout>

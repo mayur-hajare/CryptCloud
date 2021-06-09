@@ -1,10 +1,5 @@
 package com.myur.cryptcloud.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.airbnb.lottie.L;
-import com.myur.cryptcloud.model.UserModel;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -23,12 +18,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.myur.cryptcloud.R;
+import com.myur.cryptcloud.model.UserModel;
 
 import static com.myur.cryptcloud.util.Constants.restoreUserData;
 import static com.myur.cryptcloud.util.Constants.saveUserData;
@@ -37,7 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private ImageView profile1, profile2, profile3, profile4, profile5, profile6, profile7, profile8, selectedProfile, backButton, logoutButton;
     private EditText profileName;
-    private TextView profilePhone,profileEmail;
+    private TextView profilePhone, profileEmail;
     private Button saveButton, forgetButton;
 
     @Override
@@ -81,64 +80,64 @@ public class ProfileActivity extends AppCompatActivity {
         profile1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedProfile.setImageResource(R.drawable.image_1);
-                selectedProfile.setTag(R.drawable.image_1);
+                selectedProfile.setImageResource(R.drawable.img0);
+                selectedProfile.setTag(R.drawable.img0);
             }
         });
 
         profile2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedProfile.setImageResource(R.drawable.image_2);
-                selectedProfile.setTag(R.drawable.image_2);
+                selectedProfile.setImageResource(R.drawable.img1);
+                selectedProfile.setTag(R.drawable.img1);
             }
         });
 
         profile3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedProfile.setImageResource(R.drawable.image_3);
-                selectedProfile.setTag(R.drawable.image_3);
+                selectedProfile.setImageResource(R.drawable.img8);
+                selectedProfile.setTag(R.drawable.img10);
             }
         });
 
         profile4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedProfile.setImageResource(R.drawable.image_4);
-                selectedProfile.setTag(R.drawable.image_4);
+                selectedProfile.setImageResource(R.drawable.img9);
+                selectedProfile.setTag(R.drawable.img9);
             }
         });
 
         profile5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedProfile.setImageResource(R.drawable.image_5);
-                selectedProfile.setTag(R.drawable.image_5);
+                selectedProfile.setImageResource(R.drawable.img9);
+                selectedProfile.setTag(R.drawable.img9);
             }
         });
 
         profile6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedProfile.setImageResource(R.drawable.image_6);
-                selectedProfile.setTag(R.drawable.image_6);
+                selectedProfile.setImageResource(R.drawable.img6);
+                selectedProfile.setTag(R.drawable.img6);
             }
         });
 
         profile7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedProfile.setImageResource(R.drawable.image_7);
-                selectedProfile.setTag(R.drawable.image_7);
+                selectedProfile.setImageResource(R.drawable.img7);
+                selectedProfile.setTag(R.drawable.img7);
             }
         });
 
         profile8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectedProfile.setImageResource(R.drawable.image_8);
-                selectedProfile.setTag(R.drawable.image_8);
+                selectedProfile.setImageResource(R.drawable.img3);
+                selectedProfile.setTag(R.drawable.img3);
             }
         });
 
@@ -151,8 +150,8 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         String[] userData = restoreUserData(ProfileActivity.this);
-        Toast.makeText(getApplicationContext(),userData[1]+userData[2]+userData[3],Toast.LENGTH_LONG).show();
-        String Email=userData[1];
+        Toast.makeText(getApplicationContext(), userData[1] + userData[2] + userData[3], Toast.LENGTH_LONG).show();
+        String Email = userData[1];
         profileEmail.setText(Email);
         profilePhone.setText(userData[2]);
         profileName.setText(userData[0]);
@@ -184,7 +183,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 saveUserData(ProfileActivity.this, profileName.getText().toString(), userData[1], userData[2], userData[3], (int) selectedProfile.getTag());
                                 dialog.dismiss();
                                 //finish();
-                                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                             }
                         }).addOnFailureListener(new OnFailureListener() {

@@ -68,14 +68,14 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         getUserEmail = findViewById(R.id.login_username);
         getPassword = findViewById(R.id.login_password);
-        imageLogin = findViewById(R.id.image_login);
+        //imageLogin = findViewById(R.id.image_login);
         txtSignUpPage = findViewById(R.id.txt_sign_up_page);
         txtForgetPassword = findViewById(R.id.txt_forgot_password_page);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         loadingBar = new ProgressDialog(this, R.style.AppCompatAlertDialogStyle);
-        imageLogin.setImageResource(R.drawable.img_sign_in);
+        //imageLogin.setImageResource(R.drawable.img_sign_in);
 
         txtSignUpPage.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loading_animation" />
+        app:lottie_rawRes="@raw/done" />
 
     <LinearLayout
         android:layout_width="wrap_content"

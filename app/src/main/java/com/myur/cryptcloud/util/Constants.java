@@ -47,7 +47,7 @@ public class Constants {
         userData[1] = pref.getString("UEMAIL", "");
         userData[2] = pref.getString("UPHONE", "");
         userData[3] = pref.getString("UKEY", "");
-        userData[4] = String.valueOf(pref.getInt("TAG", R.drawable.image_1));
+        userData[4] = String.valueOf(pref.getInt("TAG", R.drawable.img3));
         Log.e("RESTORE: ", pref.getString("UNAME", ""));
         return userData;
     }

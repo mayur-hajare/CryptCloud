@@ -1,9 +1,5 @@
 package com.myur.cryptcloud.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.myur.cryptcloud.model.UserModel;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.myur.cryptcloud.R;
+import com.myur.cryptcloud.model.UserModel;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -137,7 +137,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(firebaseAuth.getUid());
                             String key = root.push().getKey();
-                            UserModel upload = new UserModel(name, email, phoneNumber, key, R.drawable.image_1);
+                            UserModel upload = new UserModel(name, email, phoneNumber, key, R.drawable.img3);
                             root.child("USER_DATA").child(key).setValue(upload).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
