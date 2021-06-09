@@ -11,9 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.myur.cryptcloud.R;
-import com.myur.cryptcloud.adapter.UploadFilesAdapter;
-import com.myur.cryptcloud.model.UploadModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.myur.cryptcloud.R;
+import com.myur.cryptcloud.adapter.UploadFilesAdapter;
+import com.myur.cryptcloud.model.UploadModel;
 
 import java.util.ArrayList;
 
@@ -35,6 +35,7 @@ public class BrowseFragment extends Fragment {
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(firebaseAuth.getUid()).child("USER_FILES");
     public static LottieAnimationView animationView;
 
+
     public BrowseFragment() {
         // Required empty public constructor
     }
@@ -42,7 +43,7 @@ public class BrowseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_browse, container, false);
+        View view = inflater.inflate(R.layout.activity_cloud_file, container, false);
 
         animationView = view.findViewById(R.id.animation_view);
         recyclerView = view.findViewById(R.id.encrypted_files_recyclerview);
@@ -60,7 +61,7 @@ public class BrowseFragment extends Fragment {
                     UploadModel model = dataSnapshot.getValue(UploadModel.class);
                     uploadModels.add(model);
                 }
-                if(uploadModels.size() != 0){
+                if (uploadModels.size() != 0) {
                     animationView.setVisibility(View.GONE);
                 }
                 adapter.notifyDataSetChanged();

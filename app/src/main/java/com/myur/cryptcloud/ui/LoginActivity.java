@@ -42,26 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        // check activity id already opened
-        /*SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
-        final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
-        if (isDarkModeOn) {
-            AppCompatDelegate
-                    .setDefaultNightMode(
-                            AppCompatDelegate
-                                    .MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate
-                    .setDefaultNightMode(
-                            AppCompatDelegate
-                                    .MODE_NIGHT_NO);
-        }
-
-        if (restorePrefData()) {
-            Intent homePageActivity = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(homePageActivity);
-            finish();
-        }*/
 
         setContentView(R.layout.activity_login);
 
@@ -120,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         } else {
             loadingBar.setTitle("Login You In");
-            loadingBar.setMessage("Please wait while we are checking your details");
+            loadingBar.setMessage("Just a second while we are checking your details");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
             allowAccessToAccount(email, password);
