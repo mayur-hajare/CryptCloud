@@ -138,15 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        // Navigation Drawer
 
-        /*// Bottom Navigation Bar
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        NavController navController = Navigation.findNavController(this, R.id.fragment);
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);
-
-        // Bottom Navigation Bar*/
     }
 
     private void darkModeChecker() {
