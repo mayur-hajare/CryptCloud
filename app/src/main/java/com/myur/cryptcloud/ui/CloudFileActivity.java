@@ -8,9 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -55,6 +58,17 @@ public class CloudFileActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     UploadModel model = dataSnapshot.getValue(UploadModel.class);
                     uploadModels.add(model);
+                    BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(CloudFileActivity.this,R.style.BottomSheetDialogTheme);
+                    View bottomSheetView= LayoutInflater.from(getApplicationContext()).inflate(R.layout.bottom_sheet_layout,findViewById(R.id.bottom_sheet));
+                    bottomSheetView.findViewById(R.id.btn_link).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String link= uploadModels.get(0).toString();
+                            Toast.makeText(getApplicationContext(),link,Toast.LENGTH_LONG).show();
+                            bottomSheetDialog.dismiss();
+
+                        }
+                    });
                 }
                 if(uploadModels.size() != 0){
                     animationView.setVisibility(View.GONE);

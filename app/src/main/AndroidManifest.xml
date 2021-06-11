@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="q">
-        <activity android:name=".ui.CloudFileActivity"></activity>
+        <activity android:name=".ui.TextEncrypter"></activity>
+        <activity android:name=".ui.CloudFileActivity" />
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>

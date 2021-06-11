@@ -1,5 +1,6 @@
 package com.myur.cryptcloud.adapter;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,9 +18,6 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.myur.cryptcloud.R;
-import com.myur.cryptcloud.model.UploadModel;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.myur.cryptcloud.R;
+import com.myur.cryptcloud.model.UploadModel;
 
 import java.util.ArrayList;
 
@@ -82,12 +82,14 @@ public class UploadFilesAdapter extends RecyclerView.Adapter<UploadFilesAdapter.
                     View bottomDialogLayout = ((FragmentActivity) context).getLayoutInflater().inflate(R.layout.bottom_sheet_layout, null);
                     final BottomSheetDialog dialog = new BottomSheetDialog(context, R.style.BottomSheetDialogTheme);
 
-                    TextView title, deleteMusicBtn, shareMusicBtn, downloadBtn;
+                    TextView title, deleteMusicBtn, shareMusicBtn, downloadBtn, linkbtn;
 
                     title = bottomDialogLayout.findViewById(R.id.title);
                     deleteMusicBtn = bottomDialogLayout.findViewById(R.id.btn_delete);
                     shareMusicBtn = bottomDialogLayout.findViewById(R.id.btn_share);
                     downloadBtn = bottomDialogLayout.findViewById(R.id.btn_download);
+                    linkbtn = bottomDialogLayout.findViewById(R.id.btn_link);
+
 
                     title.setSelected(true);
                     title.setText(uploadModelArrayList.get(position).getName());
@@ -148,11 +150,39 @@ public class UploadFilesAdapter extends RecyclerView.Adapter<UploadFilesAdapter.
                             dialog.dismiss();
                         }
                     });
+                    linkbtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String link = uploadModelArrayList.get(position).getFileUrl();
+                            Toast.makeText(context, link, Toast.LENGTH_LONG).show();
+                            String encrypted = "";
+                            String sourceStr = "This is any source string";
+                            try {
+                                encrypted = AESUtils.encrypt(sourceStr);
+                                Log.d("TEST", "encrypted:" + encrypted);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            //  Toast.makeText(context,encrypted,Toast.LENGTH_SHORT).show();
+                            if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                                android.text.ClipboardManager clipboard = (android.text.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                                clipboard.setText(encrypted);
+                            } else {
+                                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                                android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", encrypted);
+                                clipboard.setPrimaryClip(clip);
+                            }
+
+                        }
+                    });
                     dialog.setContentView(bottomDialogLayout);
                     dialog.show();
                 }
             });
         }
-
     }
 }
+
+
+
+

@@ -13,6 +13,11 @@
         android:icon="@drawable/ic_help"
         android:title="@string/help_and_feedback"
         app:iconTint="@color/image_tint" />
+    <item
+        android:id="@+id/Link"
+        android:icon="@drawable/ic_help"
+        android:title="Decrypt Link"
+        app:iconTint="@color/image_tint" />
 
 
 </menu>

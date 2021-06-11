@@ -70,20 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-       /* FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            for (UserInfo profile : user.getProviderData()) {
-                // Id of the provider (ex: google.com)
-                String providerId = profile.getProviderId();
 
-                // UID specific to the provider
-                String uid = profile.getUid();
-
-                // Name, email address, and profile photo Url
-                String name = profile.getDisplayName();
-                String email = profile.getEmail();
-                Uri photoUrl = profile.getPhotoUrl();
-                Toast.makeText(getApplicationContext(),name+email+photoUrl,Toast.LENGTH_LONG).show();*/
 
         View header = navigationView.getHeaderView(0);
         uName = header.findViewById(R.id.user_name);
@@ -133,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 } else if (id == R.id.menuHelp) {
                     Toast.makeText(MainActivity.this, "Open HElp & Feedback Activity", Toast.LENGTH_SHORT).show();
+                }else if (id ==R.id.Link){
+                    Intent intent=new Intent(MainActivity.this,TextEncrypter.class);
+                    startActivity(intent);
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
