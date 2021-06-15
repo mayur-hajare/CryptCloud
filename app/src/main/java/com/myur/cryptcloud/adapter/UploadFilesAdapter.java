@@ -88,7 +88,6 @@ public class UploadFilesAdapter extends RecyclerView.Adapter<UploadFilesAdapter.
                     deleteMusicBtn = bottomDialogLayout.findViewById(R.id.btn_delete);
                     shareMusicBtn = bottomDialogLayout.findViewById(R.id.btn_share);
                     downloadBtn = bottomDialogLayout.findViewById(R.id.btn_download);
-                    linkbtn = bottomDialogLayout.findViewById(R.id.btn_link);
 
 
                     title.setSelected(true);
@@ -148,31 +147,6 @@ public class UploadFilesAdapter extends RecyclerView.Adapter<UploadFilesAdapter.
                             intent.setData(Uri.parse(upload.getFileUrl()));
                             itemView.getContext().startActivity(intent);
                             dialog.dismiss();
-                        }
-                    });
-                    linkbtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String link = uploadModelArrayList.get(position).getFileUrl();
-                            Toast.makeText(context, link, Toast.LENGTH_LONG).show();
-                            String encrypted = "";
-                            String sourceStr = "This is any source string";
-                            try {
-                                encrypted = AESUtils.encrypt(sourceStr);
-                                Log.d("TEST", "encrypted:" + encrypted);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            //  Toast.makeText(context,encrypted,Toast.LENGTH_SHORT).show();
-                            if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
-                                android.text.ClipboardManager clipboard = (android.text.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                                clipboard.setText(encrypted);
-                            } else {
-                                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                                android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", encrypted);
-                                clipboard.setPrimaryClip(clip);
-                            }
-
                         }
                     });
                     dialog.setContentView(bottomDialogLayout);

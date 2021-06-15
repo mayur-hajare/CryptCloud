@@ -15,8 +15,8 @@
         app:iconTint="@color/image_tint" />
     <item
         android:id="@+id/Link"
-        android:icon="@drawable/ic_help"
-        android:title="Decrypt Link"
+        android:icon="@drawable/ic_baseline_directions"
+        android:title="Guide"
         app:iconTint="@color/image_tint" />
 
 

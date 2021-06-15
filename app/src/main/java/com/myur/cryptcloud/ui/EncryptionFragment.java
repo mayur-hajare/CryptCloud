@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -322,6 +323,15 @@ public class EncryptionFragment extends Fragment {
         // Button Listeners
         MaterialButton btnEncrypt = view.findViewById(R.id.btn_encrypt);
         MaterialButton btnDecrypt = view.findViewById(R.id.btn_decrypt);
+        MaterialButton btnLink = view.findViewById(R.id.linkbtn);
+
+        btnLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LinkActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnEncrypt.setOnClickListener(new View.OnClickListener() {
             @Override

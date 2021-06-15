@@ -27,6 +27,7 @@
             android:layout_width="370dp"
             android:layout_height="200dp"
             app:lottie_autoPlay="true"
+            app:lottie_loop="true"
             app:lottie_rawRes="@raw/filechange" />
 
 
@@ -79,7 +80,30 @@
                 app:iconTint="@color/colorPrimary"
                 app:rippleColor="@color/quantum_googblue700" />
 
+
         </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:layout_below="@+id/container"
+            android:gravity="center_horizontal"
+
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/linkbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="link Enc/ Dec"
+                android:textAllCaps="false"
+                android:textColor="@color/blue_btn_text_color"
+                app:backgroundTint="@color/quantum_googblue600"
+                app:icon="@drawable/ic_unlock"
+                app:iconSize="20dp"
+                app:iconTint="@color/colorPrimary"
+                app:rippleColor="@color/quantum_googblue700" />
+    </LinearLayout>
 
     </RelativeLayout>
 
