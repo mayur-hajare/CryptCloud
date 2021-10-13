@@ -62,7 +62,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = getEmail.getText().toString().trim();
 
-
                 if (email.equals("")) {
                     Toast.makeText(ForgotPasswordActivity.this, "Enter Your mail", Toast.LENGTH_SHORT).show();
                 } else {
