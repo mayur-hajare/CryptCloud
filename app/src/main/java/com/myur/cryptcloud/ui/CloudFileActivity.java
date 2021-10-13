@@ -1,7 +1,10 @@
 package com.myur.cryptcloud.ui;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +35,7 @@ public class CloudFileActivity extends AppCompatActivity {
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(firebaseAuth.getUid()).child("USER_FILES");
     public static LottieAnimationView animationView;
+    ImageView Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,7 @@ public class CloudFileActivity extends AppCompatActivity {
         uploadModels = new ArrayList<>();
         adapter = new UploadFilesAdapter(uploadModels, this);
         recyclerView.setAdapter(adapter);
+        Back=findViewById(R.id.back);
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,6 +71,13 @@ public class CloudFileActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
             }
         });
 

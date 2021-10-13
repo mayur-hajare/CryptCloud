@@ -67,10 +67,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:hint="Enter Password"
+            android:background="#A3FF9800"
+            android:hint="@string/enter_password"
+            android:textColorHint="@color/colorPrimaryText"
             android:maxLines="1"
-            android:textColor="@color/edit_text_color"
-            android:textCursorDrawable="@drawable/colored_cursor"
+            android:textColor="@color/colorPrimaryText"
             android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>

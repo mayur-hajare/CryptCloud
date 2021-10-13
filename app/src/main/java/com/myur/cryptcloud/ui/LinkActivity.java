@@ -2,11 +2,13 @@ package com.myur.cryptcloud.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,7 @@ public class LinkActivity extends AppCompatActivity {
     EditText edLink;
     Button enc, dec;
     TextView Tv;
+    ImageView Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class LinkActivity extends AppCompatActivity {
         enc=findViewById(R.id.btnenc);
         dec=findViewById(R.id.btndec);
         Tv=findViewById(R.id.textView);
+        Back=findViewById(R.id.back);
 
 
         enc.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +48,13 @@ public class LinkActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+            }
+        });
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
             }
         });
         dec.setOnClickListener(new View.OnClickListener() {

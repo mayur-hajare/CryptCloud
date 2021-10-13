@@ -36,13 +36,13 @@
             android:textColor="@color/text_color"
             android:textSize="13sp"
             android:textStyle="bold" />
-
+<!--
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="30dp"
             android:layout_height="30dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/emoji" />
+            app:lottie_rawRes="@raw/emoji" />-->
 
     </LinearLayout>
 </RelativeLayout>

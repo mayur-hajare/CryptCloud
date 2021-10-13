@@ -114,14 +114,12 @@ public class MainActivity extends AppCompatActivity {
 
                 // set action to selected item
                 if (id == R.id.menuSetting) {
-                    Toast.makeText(MainActivity.this, "Open Setting Activity", Toast.LENGTH_SHORT).show();
+
                     Intent intent = new Intent(MainActivity.this, SettingActivity.class);
                     startActivity(intent);
                     return true;
-                } else if (id == R.id.menuHelp) {
-                    Toast.makeText(MainActivity.this, "Open HElp & Feedback Activity", Toast.LENGTH_SHORT).show();
-                }else if (id ==R.id.Link){
-                    Intent intent=new Intent(MainActivity.this,TextEncrypter.class);
+                } else if (id == R.id.logout) {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);

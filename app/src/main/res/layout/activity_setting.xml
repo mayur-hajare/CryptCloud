@@ -115,9 +115,10 @@
                     app:tint="@color/image_tint" />
 
                 <TextView
+                    android:id="@+id/about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="About CryptCloud App"
+                    android:text="@string/about_cryptcloud_app"
                     android:textAlignment="center"
                     android:textColor="@color/text_color" />
 

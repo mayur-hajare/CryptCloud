@@ -14,6 +14,13 @@
     <string name="encrypt_text">Encrypt</string>
     <string name="fast_and_easy_file_nencryption_amp_decryption"><![CDATA[Fast and Easy File\nEncryption & Decryption]]></string>
     <string name="help_and_feedback"><![CDATA[Help & Feedback]]></string>
-    <string name="logout">Logout</string>
     <string name="securely_share_file_with_us">Securely Share File With Us.</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="text_encrypter_and_decrypter">Text encrypter and Decrypter</string>
+    <string name="encrypt">Encrypt</string>
+    <string name="about_cryptcloud_app">About CryptCloud App</string>
+    <string name="logout">Logout</string>
 </resources>
